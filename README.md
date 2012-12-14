@@ -18,7 +18,7 @@ Convert JSON to PHP representation
 When the content is just a string the output will be the same string.
 
 ```javascript
-json2php('Hello World!') 
+json2php('Hello World!')
 // => 'Hello World!'
 ```
 
@@ -27,7 +27,7 @@ json2php('Hello World!')
 Numbers are the same.
 
 ```javascript
-json2php(123) 
+json2php(123)
 // => 123
 ```
 
@@ -42,16 +42,24 @@ json2php(undefined) -> null
 #### Array
 
 ```javascript
-json2php([1, 2, 3]) 
+json2php([1, 2, 3])
 // => array(1, 2, 3)
 ```
 
 #### Object
 
 ```javascript
-json2php({a: 1, b: 2, c: 'text'}) 
+json2php({a: 1, b: 2, c: 'text'})
 // => array('a' => 1, 'b' => 2, 'c' => 'text')
 ```
+
+#### Non-valid JSON
+
+```javascript
+json2php(new Date())
+// => null
+```
+
 
 ### Tests
 
@@ -61,7 +69,7 @@ To run test we use `mocha` framework. There is a `cake` task for that.
 $ cake test
 ```
 
-or use `npm` 
+or use `npm`
 
 ```bash
 $ npm test
@@ -71,24 +79,15 @@ But in any case you will depend on `coffee-script`
 
 ### CoffeeScript Source
 
-<<<<<<< HEAD
-- Non-valid JSON
-
-	json2php(new Date()) -> null
-=======
 This is not finished yet. There is a bug into the Object sections.
->>>>>>> 3e08fa852b09cfe7d7f93b010681f71c5e53f5c2
 
 ```bash
 $ coffee -c -b -o ./lib src/json2php.coffee
 ```
 ### Changelog
 
-<<<<<<< HEAD
 #### 0.0.2
   * Fixed the case when non-valid JSON is passed
-=======
-#### 0.0.2 
   * Adding the package.json to Git repository, also package dependancy
   * Changes into the file structure
   * Adding CoffeeScript source ( Not finished yet )
@@ -96,10 +95,9 @@ $ coffee -c -b -o ./lib src/json2php.coffee
   * Adding Mocha for test framework.
   * Adding `test`, `src`, `lib` directory
   * Adding tests
->>>>>>> 3e08fa852b09cfe7d7f93b010681f71c5e53f5c2
 
 #### 0.0.1
-  * Init the project into NPM 
-  * module.exports for Node.js 
+  * Init the project into NPM
+  * module.exports for Node.js
   * Added json2php into the global scope with global.json2php
 
