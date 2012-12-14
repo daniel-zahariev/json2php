@@ -84,8 +84,11 @@ $ coffee -c -b -o ./lib src/json2php.coffee
 ```
 ### Changelog
 
-#### 0.0.2
+#### 0.0.3
   * Fixed the case when non-valid JSON is passed
+  * Fixing the bug with the object section
+
+#### 0.0.2
   * Adding the package.json to Git repository, also package dependancy
   * Changes into the file structure
   * Adding CoffeeScript source ( Not finished yet )
@@ -98,4 +101,3 @@ $ coffee -c -b -o ./lib src/json2php.coffee
   * Init the project into NPM
   * module.exports for Node.js
   * Added json2php into the global scope with global.json2php
-

@@ -1,6 +1,6 @@
 {
   "name": "json2php",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "JSON to PHP converter",
   "main": "lib/json2php.js",
   "scripts": {
