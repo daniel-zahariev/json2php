@@ -71,12 +71,13 @@ But in any case you will depend on `coffee-script`
 
 ### CoffeeScript Source
 
-This is not finished yet. There is a bug into the Object sections.
-
 ```bash
 $ coffee -c -b -o ./lib src/json2php.coffee
 ```
 ### Changelog
+
+#### 0.0.3
+  * Fixing the bug with the object section
 
 #### 0.0.2 
   * Adding the package.json to Git repository, also package dependancy
