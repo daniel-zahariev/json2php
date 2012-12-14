@@ -33,8 +33,14 @@ Convert JSON to PHP representation
 
 	json2php({a: 1, b: 2, c: 'text'}) -> array('a' => 1, 'b' => 2, 'c' => 'text')
 
+- Non-valid JSON
+
+	json2php(new Date()) -> null
 
 ### Changelog
+
+#### 0.0.2
+  * Fixed the case when non-valid JSON is passed
 
 #### 0.0.1
   * Init the project into NPM 
