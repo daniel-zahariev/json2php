@@ -1,5 +1,5 @@
 json2php = (obj) ->
-  result = ''
+  result = 'null'
   switch Object.prototype.toString.call(obj)
     when '[object Null]'      then result = 'null'
     when '[object Undefined]' then result = 'null'
@@ -13,7 +13,7 @@ json2php = (obj) ->
           result.push( json2php(i) + ' => ' + json2php(obj[i]))
       result = 'array(' + result.join(', ') + ')'
     else
-      result = ''
+      result = 'null'
   
   result
 
