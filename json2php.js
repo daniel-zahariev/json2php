@@ -1,5 +1,5 @@
 function json2php(obj) {
-    var result = '', i;
+    var result = 'null', i;
     switch (Object.prototype.toString.call(obj)) {
         case '[object Null]':
         case '[object Undefined]':
