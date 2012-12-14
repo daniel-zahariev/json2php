@@ -9,32 +9,83 @@ To install json2php you could clone the project from Github or use NPM to instal
 $ npm install json2php
 ```
 
+### Usage
+
 Convert JSON to PHP representation
 
-### Examples
+#### String
 
-- String
+When the content is just a string the output will be the same string.
 
-	json2php('Hello World!') -> 'Hello World!'
+```javascript
+json2php('Hello World!') 
+// => 'Hello World!'
+```
 
-- Numer
+#### Numer
 
-	json2php(123) -> 123
+Numbers are the same.
 
-- Undefined/Null
+```javascript
+json2php(123) 
+// => 123
+```
 
-	json2php(undefined) -> null
+#### Undefined/Null
 
-- Array
+`null` and `undefined` are returned as `null`
 
-	json2php([1, 2, 3]) -> array(1, 2, 3)
+```javascript
+json2php(undefined) -> null
+```
 
-- Object
+#### Array
 
-	json2php({a: 1, b: 2, c: 'text'}) -> array('a' => 1, 'b' => 2, 'c' => 'text')
+```javascript
+json2php([1, 2, 3]) 
+// => array(1, 2, 3)
+```
 
+#### Object
 
+```javascript
+json2php({a: 1, b: 2, c: 'text'}) 
+// => array('a' => 1, 'b' => 2, 'c' => 'text')
+```
+
+### Tests
+
+To run test we use `mocha` framework. There is a `cake` task for that.
+
+```bash
+$ cake test
+```
+
+or use `npm` 
+
+```bash
+$ npm test
+```
+
+But in any case you will depend on `coffee-script`
+
+### CoffeeScript Source
+
+This is not finished yet. There is a bug into the Object sections.
+
+```bash
+$ coffee -c -b -o ./lib src/json2php.coffee
+```
 ### Changelog
+
+#### 0.0.2 
+  * Adding the package.json to Git repository, also package dependancy
+  * Changes into the file structure
+  * Adding CoffeeScript source ( Not finished yet )
+  * Adding Cakefile and task `test`
+  * Adding Mocha for test framework.
+  * Adding `test`, `src`, `lib` directory
+  * Adding tests
 
 #### 0.0.1
   * Init the project into NPM 
