@@ -18,6 +18,10 @@
   "author": "Daniel Zahariev <daniel.zahariev@gmail.com>",
   "contributors": [
     {
+      "name": "Daniel Zahariev",
+      "email": "daniel.zahariev@gmail.com"
+    },
+    {
       "name": "Bozhidar Dryanovski",
       "email": "bozhidar.dryanovski@gmail.com"
     }
@@ -25,7 +29,7 @@
   "devDependencies": {
     "chai": "~1.4.0",
     "mocha": "~1.7.4",
-    "coffee-script": "1.4.0" 
+    "coffee-script": "1.4.0"
   },
   "license": "BSD",
   "readmeFilename": "README.md"
