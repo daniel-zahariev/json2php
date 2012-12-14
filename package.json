@@ -1,0 +1,32 @@
+{
+  "name": "json2php",
+  "version": "0.0.2",
+  "description": "JSON to PHP converter",
+  "main": "lib/json2php.js",
+  "scripts": {
+    "test": "cake test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniel-zahariev/json2php.git"
+  },
+  "keywords": [
+    "JSON",
+    "PHP",
+    "Converter"
+  ],
+  "author": "Daniel Zahariev <daniel.zahariev@gmail.com>",
+  "contributors": [
+    {
+      "name": "Bozhidar Dryanovski",
+      "email": "bozhidar.dryanovski@gmail.com"
+    }
+  ],
+  "devDependencies": {
+    "chai": "~1.4.0",
+    "mocha": "~1.7.4",
+    "coffee-script": "1.4.0" 
+  },
+  "license": "BSD",
+  "readmeFilename": "README.md"
+}
