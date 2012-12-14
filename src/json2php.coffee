@@ -8,9 +8,9 @@ json2php = (obj) ->
     when '[object Array]'     then result = 'array(' + obj.map(json2php).join(', ') + ')'
     when '[object Object]'
       result = []
-      for i in obj
+      for i of obj
         if obj.hasOwnProperty(i) 
-          result.push( json2php(i) + ' => ' + json2php(obj[i]))
+          result.push( json2php(i) + ' => ' + json2php(obj[i]) )
       result = 'array(' + result.join(', ') + ')'
     else
       result = 'null'
