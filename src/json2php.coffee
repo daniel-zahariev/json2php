@@ -1,5 +1,4 @@
 json2php = (obj) ->
-  result = ''
   switch Object.prototype.toString.call(obj)
     when '[object Null]'      then result = 'null'
     when '[object Undefined]' then result = 'null'
@@ -8,12 +7,11 @@ json2php = (obj) ->
     when '[object Array]'     then result = 'array(' + obj.map(json2php).join(', ') + ')'
     when '[object Object]'
       result = []
-      for i in obj
-        if obj.hasOwnProperty(i) 
-          result.push( json2php(i) + ' => ' + json2php(obj[i]))
-      result = 'array(' + result.join(', ') + ')'
+      for i of obj
+        result.push json2php(i) + " => " + json2php(obj[i])  if obj.hasOwnProperty(i)
+      result = "array(" + result.join(", ") + ")"
     else
-      result = ''
+      result = 'null'
   
   result
 
