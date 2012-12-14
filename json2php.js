@@ -1,5 +1,5 @@
 function json2php(obj) {
-    var result = '', helper, i;
+    var result = '', i;
     switch (Object.prototype.toString.call(obj)) {
         case '[object Null]':
         case '[object Undefined]':
@@ -25,4 +25,10 @@ function json2php(obj) {
             break;
     }
     return result;
+}
+
+if (typeof module !== 'undefined' && module.exports)
+{
+  module.exports  = json2php;
+  global.json2php = json2php;
 }

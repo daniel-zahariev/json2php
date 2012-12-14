@@ -1,6 +1,14 @@
 json2php
 ========
 
+### Instalation
+
+To install json2php you could clone the project from Github or use NPM to install it.
+
+```bash
+$ npm install json2php
+```
+
 Convert JSON to PHP representation
 
 ### Examples
@@ -24,3 +32,12 @@ Convert JSON to PHP representation
 - Object
 
 	json2php({a: 1, b: 2, c: 'text'}) -> array('a' => 1, 'b' => 2, 'c' => 'text')
+
+
+### Changelog
+
+#### 0.0.1
+  * Init the project into NPM 
+  * module.exports for Node.js 
+  * Added json2php into the global scope with global.json2php
+
