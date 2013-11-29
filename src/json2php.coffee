@@ -2,7 +2,7 @@ json2php = (obj) ->
   switch Object.prototype.toString.call(obj)
     when '[object Null]'      then result = 'null'
     when '[object Undefined]' then result = 'null'
-    when '[object String]'    then result = "'" + obj.replace('\\', '\\\\').replace("'", "\\'") + "'" 
+    when '[object String]'    then result = "'" + obj.replace(///\\///g, '\\\\').replace(///\'///g, "\\'") + "'" 
     when '[object Number]'    then result = obj.toString()
     when '[object Array]'     then result = 'array(' + obj.map(json2php).join(', ') + ')'
     when '[object Object]'

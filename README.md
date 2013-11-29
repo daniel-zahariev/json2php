@@ -84,6 +84,9 @@ $ coffee -c -b -o ./lib src/json2php.coffee
 ```
 ### Changelog
 
+#### 0.0.4
+  * Fix for single quotes escaping (thanks to @ksky521)
+
 #### 0.0.3
   * Fixed the case when non-valid JSON is passed
   * Fixing the bug with the object section

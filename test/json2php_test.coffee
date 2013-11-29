@@ -1,9 +1,9 @@
-json2php = require('../lib/json2php.js')
+json2php = require('../src/json2php.coffee')
 
 describe 'json2php', ->
   it 'If you give string you should get string.', ->
-    string = 'dummydummy'
-    assert.equal "'#{string}'", json2php(string)
+    assert.equal "'dummydummy'", json2php("dummydummy")
+    assert.equal "'\\\'escaping\\\'quotes\\\''", json2php("'escaping'quotes'")
 
   it 'If you give number you should get number.', ->
     assert.equal 1, json2php(1)
