@@ -104,3 +104,7 @@ $ coffee -c -b -o ./lib src/json2php.coffee
   * Init the project into NPM
   * module.exports for Node.js
   * Added json2php into the global scope with global.json2php
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/daniel-zahariev/json2php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
