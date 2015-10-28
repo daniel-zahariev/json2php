@@ -11,15 +11,15 @@ $ npm install json2php
 
 ### Usage
 
-Convert JSON to PHP representation
+Convert JavaScript object/array/string/number to string that is the corresponding PHP representation.
 
 #### String
 
 When the content is just a string the output will be the same string.
 
 ```javascript
-json2php('Hello World!')
-// => 'Hello World!'
+s = json2php('Hello World!')
+// => s = 'Hello World!'
 ```
 
 #### Numer
@@ -27,8 +27,8 @@ json2php('Hello World!')
 Numbers are the same.
 
 ```javascript
-json2php(123)
-// => 123
+s = json2php(123)
+// => s = '123'
 ```
 
 #### Undefined/Null
@@ -36,28 +36,29 @@ json2php(123)
 `null` and `undefined` are returned as `null`
 
 ```javascript
-json2php(undefined) -> null
+s = json2php(undefined)
+// => s = 'null'
 ```
 
 #### Array
 
 ```javascript
-json2php([1, 2, 3])
-// => array(1, 2, 3)
+s = json2php([1, 2, 3])
+// => s = 'array(1, 2, 3)'
 ```
 
 #### Object
 
 ```javascript
-json2php({a: 1, b: 2, c: 'text'})
-// => array('a' => 1, 'b' => 2, 'c' => 'text')
+s = json2php({a: 1, b: 2, c: 'text'})
+// => s = "array('a' => 1, 'b' => 2, 'c' => 'text')"
 ```
 
 #### Non-valid JSON
 
 ```javascript
-json2php(new Date())
-// => null
+s = json2php(new Date())
+// => s = "null"
 ```
 
 
