@@ -61,28 +61,24 @@ s = json2php(new Date())
 // => s = "null"
 ```
 
+### For Contributors
 
-### Tests
+#### Tests
 
-To run test we use `mocha` framework. There is a `cake` task for that.
-
-```bash
-$ cake test
-```
-
-or use `npm`
+To run test we use `mocha` framework.
 
 ```bash
 $ npm test
 ```
 
+#### CoffeeScript Source
+
 But in any case you will depend on `coffee-script`
 
-### CoffeeScript Source
-
 ```bash
-$ coffee -c -b -o ./lib src/json2php.coffee
+$ npm build
 ```
+
 ### Changelog
 
 #### 0.0.4

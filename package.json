@@ -4,7 +4,8 @@
   "description": "JSON to PHP converter",
   "main": "lib/json2php.js",
   "scripts": {
-    "test": "cake test"
+    "build": "coffee -c -b -o ./lib src/json2php.coffee",
+    "test": "mocha --require coffeescript/register 'test/**/*.coffee'"
   },
   "repository": {
     "type": "git",
