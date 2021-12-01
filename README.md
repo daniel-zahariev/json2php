@@ -11,7 +11,7 @@ $ npm install json2php
 
 ### Usage
 
-Convert JavaScript object/array/string/number to string that is the corresponding PHP representation.
+Convert JavaScript object/array/string/number/boolean to string that is the corresponding PHP representation.
 
 #### String
 
@@ -29,6 +29,13 @@ Numbers are the same.
 ```javascript
 s = json2php(123)
 // => s = '123'
+```
+
+#### Boolean
+
+```javascript
+s = json2php( true )
+// => s = 'true'
 ```
 
 #### Undefined/Null
@@ -50,8 +57,8 @@ s = json2php([1, 2, 3])
 #### Object
 
 ```javascript
-s = json2php({a: 1, b: 2, c: 'text'})
-// => s = "array('a' => 1, 'b' => 2, 'c' => 'text')"
+s = json2php({a: 1, b: 2, c: 'text', false: true, undefined: null})
+// => s = "array('a' => 1, 'b' => 2, 'c' => 'text', 'false': true, 'undefined': null)"
 ```
 
 #### Non-valid JSON
