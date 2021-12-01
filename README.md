@@ -22,7 +22,7 @@ s = json2php('Hello World!')
 // => s = 'Hello World!'
 ```
 
-#### Numer
+#### Number
 
 Numbers are the same.
 
