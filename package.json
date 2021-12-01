@@ -27,9 +27,8 @@
     }
   ],
   "devDependencies": {
-    "chai": "~1.4.0",
-    "mocha": "~1.7.4",
-    "coffee-script": "1.4.0"
+    "mocha": "^9",
+    "coffeescript": "^2"
   },
   "license": "BSD",
   "readmeFilename": "README.md"
