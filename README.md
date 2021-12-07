@@ -90,6 +90,7 @@ $ npm run build
 
 #### 0.0.5
   * Update and clean up (thanks to @SumoTTo)
+  * Add boolean type (thanks to @SumoTTo)
 
 
 #### 0.0.4
