@@ -11,7 +11,7 @@ $ npm install json2php
 
 ### Usage
 
-Convert JavaScript object/array/string/number to string that is the corresponding PHP representation.
+Convert JavaScript object/array/string/number/boolean to string that is the corresponding PHP representation.
 
 #### String
 
@@ -22,13 +22,20 @@ s = json2php('Hello World!')
 // => s = 'Hello World!'
 ```
 
-#### Numer
+#### Number
 
 Numbers are the same.
 
 ```javascript
 s = json2php(123)
 // => s = '123'
+```
+
+#### Boolean
+
+```javascript
+s = json2php( true )
+// => s = 'true'
 ```
 
 #### Undefined/Null
@@ -50,8 +57,8 @@ s = json2php([1, 2, 3])
 #### Object
 
 ```javascript
-s = json2php({a: 1, b: 2, c: 'text'})
-// => s = "array('a' => 1, 'b' => 2, 'c' => 'text')"
+s = json2php({a: 1, b: 2, c: 'text', false: true, undefined: null})
+// => s = "array('a' => 1, 'b' => 2, 'c' => 'text', 'false': true, 'undefined': null)"
 ```
 
 #### Non-valid JSON
@@ -61,29 +68,30 @@ s = json2php(new Date())
 // => s = "null"
 ```
 
+### For Contributors
 
-### Tests
+#### Tests
 
-To run test we use `mocha` framework. There is a `cake` task for that.
-
-```bash
-$ cake test
-```
-
-or use `npm`
+To run test we use `mocha` framework.
 
 ```bash
 $ npm test
 ```
 
+#### CoffeeScript Source
+
 But in any case you will depend on `coffee-script`
 
-### CoffeeScript Source
-
 ```bash
-$ coffee -c -b -o ./lib src/json2php.coffee
+$ npm run build
 ```
+
 ### Changelog
+
+#### 0.0.5
+  * Update and clean up (thanks to @SumoTTo)
+  * Add boolean type (thanks to @SumoTTo)
+
 
 #### 0.0.4
   * Fix for single quotes escaping (thanks to @ksky521)
