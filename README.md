@@ -76,10 +76,14 @@ $ npm test
 But in any case you will depend on `coffee-script`
 
 ```bash
-$ npm build
+$ npm run build
 ```
 
 ### Changelog
+
+#### 0.0.5
+  * Update and clean up (thanks to @SumoTTo)
+
 
 #### 0.0.4
   * Fix for single quotes escaping (thanks to @ksky521)
