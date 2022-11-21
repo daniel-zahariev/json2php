@@ -23,7 +23,7 @@ make = ({linebreak = '', indent = ''} = {}) ->
         items = nest[objType](obj, nestIndent, localIndent)
         result = """
           array(#{linebreak + nestIndent}#{
-            items.join(', ' + linebreak + nestIndent)
+            items.join(',' + if linebreak == '' then ' ' else linebreak + nestIndent)
           }#{linebreak + localIndent })
         """
       else

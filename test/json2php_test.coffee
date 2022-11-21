@@ -34,6 +34,6 @@ describe 'json2php.make({linebreak:"🔪", indent:"🧱"})', ->
   it 'returns a pretty printed php array given an array or object.', ->
     pretty = json2php.make({linebreak:'🔪', indent:'🧱'})
     assert.equal(
-      "array(🔪🧱'one', 🔪🧱'two', 🔪🧱array(🔪🧱🧱'name' => 'Noel', 🔪🧱🧱'surname' => 'Broda', 🔪🧱🧱'childrens' => array(🔪🧱🧱🧱'John' => array(🔪🧱🧱🧱🧱'name' => 'John', 🔪🧱🧱🧱🧱'surname' => 'Bainotti'🔪🧱🧱🧱), 🔪🧱🧱🧱'Tin' => array(🔪🧱🧱🧱🧱'name' => 'Tin', 🔪🧱🧱🧱🧱'surname' => 'Tassi'🔪🧱🧱🧱)🔪🧱🧱)🔪🧱)🔪)",
+      "array(🔪🧱'one',🔪🧱'two',🔪🧱array(🔪🧱🧱'name' => 'Noel',🔪🧱🧱'surname' => 'Broda',🔪🧱🧱'childrens' => array(🔪🧱🧱🧱'John' => array(🔪🧱🧱🧱🧱'name' => 'John',🔪🧱🧱🧱🧱'surname' => 'Bainotti'🔪🧱🧱🧱),🔪🧱🧱🧱'Tin' => array(🔪🧱🧱🧱🧱'name' => 'Tin',🔪🧱🧱🧱🧱'surname' => 'Tassi'🔪🧱🧱🧱)🔪🧱🧱)🔪🧱)🔪)",
       pretty(['one', 'two', { name: 'Noel', surname: 'Broda', childrens: { John: {name: 'John', surname: 'Bainotti'}, Tin: {name: 'Tin', surname: 'Tassi'} } }])
     )
