@@ -19,7 +19,7 @@ describe 'json2php', ->
     assert.equal 'null', json2php(null)
 
   it 'If you give array you should get php array.', ->
-    # Single level
+# Single level
     assert.equal 'array(1, 2, 3)', json2php([1, 2, 3])
     # Multi level
     assert.equal 'array(1, array(2), 3)', json2php([1, [2], 3])
@@ -29,3 +29,11 @@ describe 'json2php', ->
 
   it 'If you give object you should get php array of it.', ->
     assert.equal "array('name' => 'Noel', 'surname' => 'Broda', 'childrens' => array('John' => array('name' => 'John', 'surname' => 'Bainotti'), 'Tin' => array('name' => 'Tin', 'surname' => 'Tassi')))", json2php({ name: 'Noel', surname: 'Broda', childrens: { John: {name: 'John', surname: 'Bainotti'}, Tin: {name: 'Tin', surname: 'Tassi'} } })
+
+describe 'json2php.make({linebreak:"🔪", indent:"🧱"})', ->
+  it 'returns a pretty printed php array given an array or object.', ->
+    pretty = json2php.make({linebreak:'🔪', indent:'🧱'})
+    assert.equal(
+      "array(🔪🧱'one',🔪🧱'two',🔪🧱array(🔪🧱🧱'name' => 'Noel',🔪🧱🧱'surname' => 'Broda',🔪🧱🧱'childrens' => array(🔪🧱🧱🧱'John' => array(🔪🧱🧱🧱🧱'name' => 'John',🔪🧱🧱🧱🧱'surname' => 'Bainotti'🔪🧱🧱🧱),🔪🧱🧱🧱'Tin' => array(🔪🧱🧱🧱🧱'name' => 'Tin',🔪🧱🧱🧱🧱'surname' => 'Tassi'🔪🧱🧱🧱)🔪🧱🧱)🔪🧱)🔪)",
+      pretty(['one', 'two', { name: 'Noel', surname: 'Broda', childrens: { John: {name: 'John', surname: 'Bainotti'}, Tin: {name: 'Tin', surname: 'Tassi'} } }])
+    )

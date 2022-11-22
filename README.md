@@ -68,6 +68,26 @@ s = json2php(new Date())
 // => s = "null"
 ```
 
+### Pretty printing
+Create custom 'printers' with `json2php.make`: 
+
+```javascript
+const printer = json2php.make({linebreak:'\n', indent:'\t'})
+printer({one: 3, two: 20, three: [9, 3, 2]})
+
+/* result:.
+array(
+	'one' => 3, 
+	'two' => 20, 
+	'set' => array(
+		9, 
+		3, 
+		2
+	)
+)
+*/
+```
+
 ### For Contributors
 
 #### Tests
@@ -88,10 +108,12 @@ $ npm run build
 
 ### Changelog
 
+#### 0.0.6
+  * Add pretty print capability via `json2php.make` (thanks to @stokesman)
+
 #### 0.0.5
   * Update and clean up (thanks to @SumoTTo)
   * Add boolean type (thanks to @SumoTTo)
-
 
 #### 0.0.4
   * Fix for single quotes escaping (thanks to @ksky521)
@@ -101,7 +123,7 @@ $ npm run build
   * Fixing the bug with the object section
 
 #### 0.0.2
-  * Adding the package.json to Git repository, also package dependancy
+  * Adding the package.json to Git repository, also package dependency
   * Changes into the file structure
   * Adding CoffeeScript source ( Not finished yet )
   * Adding Cakefile and task `test`
@@ -113,7 +135,3 @@ $ npm run build
   * Init the project into NPM
   * module.exports for Node.js
   * Added json2php into the global scope with global.json2php
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/daniel-zahariev/json2php/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
