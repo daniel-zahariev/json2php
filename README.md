@@ -72,19 +72,19 @@ s = json2php(new Date())
 Create custom 'printers' with `json2php.make`: 
 
 ```javascript
-const printer = json2php.make({linebreak:'\n', indent:'\t'})
+const printer = json2php.make({linebreak:'\n', indent:'\t', shortArraySyntax: true})
 printer({one: 3, two: 20, three: [9, 3, 2]})
 
 /* result:.
-array(
+[
 	'one' => 3, 
 	'two' => 20, 
-	'set' => array(
+	'set' => [
 		9, 
 		3, 
 		2
-	)
-)
+	]
+]
 */
 ```
 
@@ -107,6 +107,9 @@ $ npm run build
 ```
 
 ### Changelog
+
+#### 0.0.7
+  * Add `shortArraySyntax` option pretty print options
 
 #### 0.0.6
   * Add pretty print capability via `json2php.make` (thanks to @stokesman)

@@ -37,3 +37,9 @@ describe 'json2php.make({linebreak:"🔪", indent:"🧱"})', ->
       "array(🔪🧱'one',🔪🧱'two',🔪🧱array(🔪🧱🧱'name' => 'Noel',🔪🧱🧱'surname' => 'Broda',🔪🧱🧱'childrens' => array(🔪🧱🧱🧱'John' => array(🔪🧱🧱🧱🧱'name' => 'John',🔪🧱🧱🧱🧱'surname' => 'Bainotti'🔪🧱🧱🧱),🔪🧱🧱🧱'Tin' => array(🔪🧱🧱🧱🧱'name' => 'Tin',🔪🧱🧱🧱🧱'surname' => 'Tassi'🔪🧱🧱🧱)🔪🧱🧱)🔪🧱)🔪)",
       pretty(['one', 'two', { name: 'Noel', surname: 'Broda', childrens: { John: {name: 'John', surname: 'Bainotti'}, Tin: {name: 'Tin', surname: 'Tassi'} } }])
     )
+
+describe 'json2php.make({shortArraySyntax: true})', ->
+  it 'returns a pretty printed php array using short array syntax.', ->
+    pretty = json2php.make({shortArraySyntax: true})
+    assert.equal "['a' => 1, 'c' => 'text', 'false' => true, 'undefined' => null]", pretty({ a:1, c:'text', false: true, undefined: null})
+    assert.equal '[1, [2], 3]', pretty([1, [2], 3])

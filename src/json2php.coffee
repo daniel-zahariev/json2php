@@ -1,4 +1,6 @@
-make = ({linebreak = '', indent = ''} = {}) ->
+make = ({linebreak = '', indent = '', shortArraySyntax = false} = {}) ->
+  arrOpen = if shortArraySyntax then '[' else 'array('
+  arrClose = if shortArraySyntax then ']' else ')'
   nest = {
     '[object Array]': (obj, parentIndent) ->
       for value in obj
@@ -22,9 +24,9 @@ make = ({linebreak = '', indent = ''} = {}) ->
         nestIndent = parentIndent + indent
         items = nest[objType](obj, nestIndent)
         result = """
-          array(#{linebreak + nestIndent}#{
+          #{arrOpen}#{linebreak + nestIndent}#{
             items.join(',' + if linebreak == '' then ' ' else linebreak + nestIndent)
-          }#{linebreak + parentIndent})
+          }#{linebreak + parentIndent}#{arrClose}
         """
       else
         result = 'null'
@@ -36,5 +38,5 @@ json2php.make = make
 
 if typeof module isnt 'undefined' and module.exports
   module.exports = json2php
-  # Not that good but usefull
+  # Not that good but useful
   global.json2php = json2php
