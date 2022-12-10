@@ -109,7 +109,7 @@ $ npm run build
 ### Changelog
 
 #### 0.0.7
-  * Add `shortArraySyntax` option pretty print options
+  * Add `shortArraySyntax` to pretty print options
 
 #### 0.0.6
   * Add pretty print capability via `json2php.make` (thanks to @stokesman)
