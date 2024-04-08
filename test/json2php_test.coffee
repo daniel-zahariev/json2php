@@ -43,3 +43,20 @@ describe 'json2php.make({shortArraySyntax: true})', ->
     pretty = json2php.make({shortArraySyntax: true})
     assert.equal "['a' => 1, 'c' => 'text', 'false' => true, 'undefined' => null]", pretty({ a:1, c:'text', false: true, undefined: null})
     assert.equal '[1, [2], 3]', pretty([1, [2], 3])
+
+describe 'json2php.make({stripSpaces: true})', ->
+  it 'compresses output with shortArraySyntax', ->
+    pretty = json2php.make({stripSpaces: true, shortArraySyntax: true})
+    testObj = {
+      arr: [1, 2, 3, 4, 5, {foo: 'surprise!'}],
+      obj: {
+        arr: [{foo: 'bar', bar: 'baz', arr2: [1, 2]}]
+      },
+      test: 'str'
+    }
+    assert.equal "['arr'=>[1,2,3,4,5,['foo'=>'surprise!']],'obj'=>['arr'=>[['foo'=>'bar','bar'=>'baz','arr2'=>[1,2]]]],'test'=>'str']", pretty(testObj)
+
+  it 'strips spaces from simple arrays and objects', ->
+      pretty = json2php.make({stripSpaces: true})
+      assert.equal "array(1,array(2,4,array('foo'=>'bar','bar'=>'baz')),3)", pretty([1, [2, 4, {foo: "bar", bar: "baz"}], 3])
+
