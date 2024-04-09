@@ -1,7 +1,7 @@
 json2php
 ========
 
-### Instalation
+### Installation
 
 To install json2php you could clone the project from Github or use NPM to install it.
 
@@ -123,6 +123,9 @@ $ npm run build
 ```
 
 ### Changelog
+
+#### 0.0.8
+  * Add `stripSpaces` to pretty print options (thanks to @noahtallen)
 
 #### 0.0.7
   * Add `shortArraySyntax` to pretty print options
