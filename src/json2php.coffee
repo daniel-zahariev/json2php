@@ -1,4 +1,4 @@
-make = ({linebreak = '', indent = '', shortArraySyntax = false} = {}) ->
+make = ({linebreak = '', indent = '', shortArraySyntax = false, stripSpaces = false} = {}) ->
   arrOpen = if shortArraySyntax then '[' else 'array('
   arrClose = if shortArraySyntax then ']' else ')'
   nest = {
@@ -8,7 +8,7 @@ make = ({linebreak = '', indent = '', shortArraySyntax = false} = {}) ->
 
     '[object Object]': (obj, parentIndent) ->
       for own key, value of obj
-        transform(key, parentIndent) + ' => ' + transform(value, parentIndent)
+        transform(key, parentIndent) + (if stripSpaces then '=>' else ' => ') + transform(value, parentIndent)
   }
 
   transform = (obj, parentIndent = '') ->
@@ -25,7 +25,7 @@ make = ({linebreak = '', indent = '', shortArraySyntax = false} = {}) ->
         items = nest[objType](obj, nestIndent)
         result = """
           #{arrOpen}#{linebreak + nestIndent}#{
-            items.join(',' + if linebreak == '' then ' ' else linebreak + nestIndent)
+            items.join(',' + if linebreak == '' && !stripSpaces then ' ' else linebreak + nestIndent)
           }#{linebreak + parentIndent}#{arrClose}
         """
       else

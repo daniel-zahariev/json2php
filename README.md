@@ -88,6 +88,22 @@ printer({one: 3, two: 20, three: [9, 3, 2]})
 */
 ```
 
+### Compressing the output
+To compress the output (e.g. to make the resulting PHP as small as possible), use `shortArraySyntax` with `stripSpaces`:
+
+```javascript
+const printer = json2php.make({shortArraySyntax: true, stripSpaces: true})
+printer({
+  arr: [1, 2, 3, 4, 5, {foo: 'surprise!'}],
+  obj: {
+    arr: [{foo: 'bar', bar: 'baz', arr2: [1, 2]}]
+  }
+})
+
+// result:
+// ['arr'=>[1,2,3,4,5,['foo'=>'surprise!']],'obj'=>['arr'=>[['foo'=>'bar','bar'=>'baz','arr2'=>[1,2]]]],'test'=>'str']
+```
+
 ### For Contributors
 
 #### Tests
