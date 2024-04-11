@@ -1,6 +1,6 @@
 {
   "name": "json2php",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "JSON to PHP converter",
   "main": "lib/json2php.js",
   "scripts": {
@@ -21,10 +21,6 @@
     {
       "name": "Daniel Zahariev",
       "email": "daniel.zahariev@gmail.com"
-    },
-    {
-      "name": "Bozhidar Dryanovski",
-      "email": "bozhidar.dryanovski@gmail.com"
     }
   ],
   "devDependencies": {

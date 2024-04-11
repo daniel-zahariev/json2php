@@ -124,7 +124,7 @@ $ npm run build
 
 ### Changelog
 
-#### 0.0.8
+#### 0.0.9
   * Add `stripSpaces` to pretty print options (thanks to @noahtallen)
 
 #### 0.0.7
