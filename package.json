@@ -24,9 +24,11 @@
     }
   ],
   "devDependencies": {
-    "coffeescript": "^2",
-    "mocha": "^9"
+    "coffeescript": "^2"
   },
   "license": "BSD",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "mocha": "^10.7.0"
+  }
 }
