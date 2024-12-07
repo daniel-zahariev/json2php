@@ -22,13 +22,15 @@ s = json2php('Hello World!')
 // => s = 'Hello World!'
 ```
 
-#### Number
+#### Number & BigInt
 
-Numbers are the same.
+Number and BigInt types are the same.
 
 ```javascript
 s = json2php(123)
 // => s = '123'
+b = json2php(BigInt(123))
+// => b = '123'
 ```
 
 #### Boolean
@@ -45,6 +47,26 @@ s = json2php( true )
 ```javascript
 s = json2php(undefined)
 // => s = 'null'
+```
+
+#### Symbol/Function
+
+`Symbol` and `Function` are returned as `null`
+
+```javascript
+s = json2php(Symbol(test))
+// => s = 'null'
+f = json2php(function greet(name) { return `Hello, ${name}!`; })
+// => f = 'null'
+```
+
+#### Date
+
+Dates are formatted to string using `toISOString` method
+
+```javascript
+s = json2php(new Date('2020-06-19 18:20:34')))
+// => s = '2020-06-19T15:20:34.000Z'
 ```
 
 #### Array
@@ -123,6 +145,12 @@ $ npm run build
 ```
 
 ### Changelog
+
+#### 0.0.11
+  * Add support for Date and BigInt types
+
+#### 0.0.10
+  * Rewrite to TypeScript
 
 #### 0.0.9
   * Add `stripSpaces` to pretty print options (thanks to @noahtallen)

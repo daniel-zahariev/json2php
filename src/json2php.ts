@@ -5,6 +5,7 @@ type MakeProps = {
   stripSpaces?: boolean;
 };
 
+const acceptedObjectTypes = ['[object Array]', '[object Object]'];
 const make = (props: MakeProps = {}) => {
   const linebreak = props.linebreak ?? '';
   const indent = props.indent ?? '';
@@ -18,6 +19,7 @@ const make = (props: MakeProps = {}) => {
     switch (typeof obj) {
       case 'undefined':
         return 'null';
+      case 'bigint':
       case 'number':
       case 'boolean':
         return obj.toString();
@@ -25,6 +27,10 @@ const make = (props: MakeProps = {}) => {
         return `'${obj.replace(/\\/g, '\\\\').replace(/\'/g, "\\'")}'`;
       case 'object':
         if (obj === null) return 'null';
+        const objType = Object.prototype.toString.call(obj);
+        if (objType === '[object Date]') return (obj as Date).toISOString();
+        if (!acceptedObjectTypes.includes(objType)) return 'null';
+
         const nestIndent = parentIndent + indent;
         const items = Array.isArray(obj)
           ? obj.map((item) => transform(item, nestIndent))

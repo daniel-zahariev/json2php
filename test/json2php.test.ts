@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import json2php from '../src/json2php.js';
 
+const testSymbol = Symbol('test');
+
 describe('json2php', () => {
   it('If you give string you should get string.', () => {
     expect(json2php('dummydummy')).toBe("'dummydummy'");
@@ -21,6 +23,26 @@ describe('json2php', () => {
   it('If you give undefined or null you should get null.', () => {
     expect(json2php(undefined)).toBe('null');
     expect(json2php(null)).toBe('null');
+  });
+
+  it('If you give symbol or function you should get null.', () => {
+    expect(json2php(testSymbol)).toBe('null');
+    expect(json2php(() => 'hello')).toBe('null');
+    expect(
+      json2php(function greet(name) {
+        return `Hello, ${name}!`;
+      }),
+    ).toBe('null');
+  });
+
+  it('If you give a Date you should get a value.', () => {
+    expect(json2php(new Date('2020-06-19 18:20:34'))).toBe('2020-06-19T15:20:34.000Z');
+  });
+
+  it('If you give a BigInt you should get a value.', () => {
+    expect(json2php(BigInt('5544544780524281256998074770286755445447805242812569980747702867'))).toBe(
+      '5544544780524281256998074770286755445447805242812569980747702867',
+    );
   });
 
   it('If you give array you should get php array.', () => {
@@ -44,6 +66,12 @@ describe('json2php', () => {
     ).toBe(
       "array('name' => 'Noel', 'surname' => 'Broda', 'childrens' => array('John' => array('name' => 'John', 'surname' => 'Bainotti'), 'Tin' => array('name' => 'Tin', 'surname' => 'Tassi')))",
     );
+  });
+
+  it('If you give any other object you should get null.', () => {
+    expect(json2php(new AbortController())).toBe('null');
+    expect(json2php(new ArrayBuffer())).toBe('null');
+    expect(json2php(new URLSearchParams())).toBe('null');
   });
 });
 
