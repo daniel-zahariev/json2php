@@ -3,15 +3,15 @@ json2php
 
 ### Installation
 
-To install json2php you could clone the project from Github or use NPM to install it.
+To install json2php you could clone the project from GitHub or use NPM to install it.
 
 ```bash
-$ npm install json2php
+npm install json2php
 ```
 
 ### Usage
 
-Convert JavaScript object/array/string/number/boolean to string that is the corresponding PHP representation.
+Convert JavaScript object/array/string/number/bigint/boolean/Date to string that is the corresponding PHP representation.
 
 #### String
 
@@ -97,7 +97,7 @@ Create custom 'printers' with `json2php.make`:
 const printer = json2php.make({linebreak:'\n', indent:'\t', shortArraySyntax: true})
 printer({one: 3, two: 20, three: [9, 3, 2]})
 
-/* result:.
+/* result:
 [
 	'one' => 3, 
 	'two' => 20, 
@@ -126,25 +126,10 @@ printer({
 // ['arr'=>[1,2,3,4,5,['foo'=>'surprise!']],'obj'=>['arr'=>[['foo'=>'bar','bar'=>'baz','arr2'=>[1,2]]]],'test'=>'str']
 ```
 
-### For Contributors
-
-#### Tests
-
-To run test we use `mocha` framework.
-
-```bash
-$ npm test
-```
-
-#### CoffeeScript Source
-
-But in any case you will depend on `coffee-script`
-
-```bash
-$ npm run build
-```
-
 ### Changelog
+
+#### 0.0.12
+  * Up the release management & cleanup
 
 #### 0.0.11
   * Add support for Date and BigInt types

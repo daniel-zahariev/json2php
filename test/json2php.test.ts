@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import json2php from '../src/json2php.js';
+import json2php from '../src/index.js';
 
 const testSymbol = Symbol('test');
 
